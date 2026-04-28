@@ -13,3 +13,7 @@ Relatório de Aula
     - Cores/Bordas          
         
 É nessa aula que tudo dá errado, as vezes.....sempre...quase sempre
+
+26/05 - Entrega Protótipo de Projeto WEB
+02/06 - Apresentação de Soluções WEB em Grupo/Trio/Duplas
+23/06 - Entrega de Projeto WEB - Final - Dupla
