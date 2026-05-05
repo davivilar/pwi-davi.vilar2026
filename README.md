@@ -17,3 +17,19 @@ Relatório de Aula
 26/05 - Entrega Protótipo de Projeto WEB
 02/06 - Apresentação de Soluções WEB em Grupo/Trio/Duplas
 23/06 - Entrega de Projeto WEB - Final - Dupla
+
+Para dia 19/05
+
+Em duplas Implementar no Projeto
+
+HTML
+	Mapas, vídeos ou audios
+
+CSS
+	Seletores
+	Cascata e herança; 
+	Variáveis (custom properties); 
+	Media Queries
+	
+
+Próximo Tópico - Formulários
