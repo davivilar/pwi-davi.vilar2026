@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Diagnóstico do Navegador</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #0f172a;
+        color: #e2e8f0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .card {
+        background: #1e293b;
+        padding: 15px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 10px;
+    }
+
+    button {
+        padding: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+</style>
+
+</head>
+<body>
+
+<h1>🖥️ Diagnóstico do Navegador</h1>
+
+<div class="grid" id="container"></div>
+
+<button onclick="carregarInfo()">🔄 Atualizar Informações</button>
+
+<script>
+
+function criarCard(titulo, valor) {
+    return `
+        <div class="card">
+            <h3>${titulo}</h3>
+            <p>${valor}</p>
+        </div>
+    `;
+}
+
+function carregarInfo() {
+
+    let html = "";
+
+    // 🌐 Navegador
+    html += criarCard("Navegador", navigator.userAgent);
+    html += criarCard("Plataforma", navigator.platform);
+    html += criarCard("Idioma", navigator.language);
+
+    // 🌍 Localização (sem GPS)
+    html += criarCard("Fuso horário", Intl.DateTimeFormat().resolvedOptions().timeZone);
+
+    // 🕒 Data
+    html += criarCard("Data/Hora", new Date().toLocaleString());
+
+    // 📶 Conexão
+    html += criarCard("Online", navigator.onLine ? "Sim" : "Não");
+
+    // 🖥️ Tela
+    html += criarCard("Resolução", `${screen.width} x ${screen.height}`);
+    html += criarCard("Profundidade de cor", screen.colorDepth + " bits");
+
+    // ⚙️ Hardware (limitado)
+    html += criarCard("CPU (núcleos)", navigator.hardwareConcurrency || "N/A");
+    html += criarCard("Memória RAM (estimada)", navigator.deviceMemory ? navigator.deviceMemory + " GB" : "N/A");
+
+    // 🔋 Bateria (se suportado)
+    if (navigator.getBattery) {
+        navigator.getBattery().then(bat => {
+            document.getElementById("bateria").innerHTML = `
+                🔋 ${Math.round(bat.level * 100)}% 
+                (${bat.charging ? "Carregando" : "Descargando"})
+            `;
+        });
+        html += criarCard("Bateria", "<span id='bateria'>Carregando...</span>");
+    }
+
+    // 📍 Geolocalização (permite)
+    html += criarCard("Localização", "<button onclick='pegarLocalizacao()'>Obter localização</button><p id='geo'></p>");
+
+    // 💾 Armazenamento (simples)
+    localStorage.setItem("teste", "OK");
+    html += criarCard("LocalStorage", "Disponível ✅");
+
+    // 🧠 Cookies
+    html += criarCard("Cookies habilitados", navigator.cookieEnabled ? "Sim" : "Não");
+
+    // 📱 Touch (celular?)
+    html += criarCard("Suporte a toque", 'ontouchstart' in window ? "Sim" : "Não");
+
+    // 🖱️ Tipo de dispositivo (heurística)
+    const mobile = /Mobi|Android/i.test(navigator.userAgent);
+    html += criarCard("Dispositivo", mobile ? "Mobile 📱" : "Desktop 💻");
+
+    document.getElementById("container").innerHTML = html;
+}
+
+// 📍 Geolocalização
+function pegarLocalizacao() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+            document.getElementById("geo").innerText =
+                `Lat: ${pos.coords.latitude}, Lon: ${pos.coords.longitude}`;
+        }, () => {
+            document.getElementById("geo").innerText = "Permissão negada ❌";
+        });
+    }
+}
+
+// inicial
+carregarInfo();
+
+</script>
+
+</body>
+</html>
