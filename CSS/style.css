@@ -1,0 +1,24 @@
+        body {
+            background-color: rgb(134, 134, 190);
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+
+        form {
+            max-width: 700px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select, textarea, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }

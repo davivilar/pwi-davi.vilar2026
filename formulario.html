@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Formulário Completo - Aula</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+
+<h2>Formulário de Cadastro (Exemplo Didático)</h2>
+
+<form>
+
+    <!-- Campo texto simples -->
+    <label>Nome:</label>
+    <input type="text" name="nome" placeholder="Digite seu nome">
+
+    <label>Sobrenome:</label>
+    <input type="text" name="sobrenome">
+
+    <!-- Campo numérico -->
+    <label>Idade:</label>
+    <input type="number" name="idade" min="0" max="120">
+
+    <!-- Campo data -->
+    <label>Data de nascimento:</label>
+    <input type="date" name="dataNascimento">
+
+    <!-- Endereço -->
+    <label>Endereço:</label>
+    <input type="text" name="endereco">
+
+    <label>Número:</label>
+    <input type="number" name="numero">
+
+    <label>Bairro:</label>
+    <input type="text" name="bairro">
+
+    <!-- Campo de CEP com padrão -->
+    <label>CEP:</label>
+    <input type="text" name="cep" placeholder="00000-000">
+
+    <!-- Contato -->
+    <label>Telefone:</label>
+    <input type="tel" name="telefone" placeholder="(00) 00000-0000">
+
+    <label>Email:</label>
+    <input type="email" name="email">
+
+    <!-- Cor favorita -->
+    <label>Cor predileta:</label>
+    <input type="color" name="cor">
+
+    <!-- Campo senha -->
+    <label>Senha:</label>
+    <input type="password" name="senha">
+
+    <!-- Radio (escolha única) -->
+    <label>Sexo:</label>
+    <input type="radio" name="sexo" value="masculino"> Masculino
+    <input type="radio" name="sexo" value="feminino"> Feminino
+
+    <!-- Checkbox (múltiplas opções) -->
+    <label>Interesses:</label>
+    <input type="checkbox" name="interesse" value="programacao"> Programação
+    <input type="checkbox" name="interesse" value="jogos"> Jogos
+    <input type="checkbox" name="interesse" value="musica"> Música
+
+    <!-- Select (lista suspensa) -->
+    <label>Estado:</label>
+    <select name="estado">
+        <option>SP</option>
+        <option>RJ</option>
+        <option>MG</option>
+        <option>OUTRO</option>
+    </select>
+
+    <!-- Textarea -->
+    <label>Observações:</label>
+    <textarea name="observacoes" rows="4"></textarea>
+
+    <!-- Upload de arquivo -->
+    <label>Enviar documento:</label>
+    <input type="file" name="arquivo">
+
+    <!-- Controle de intervalo -->
+    <label>Nível de satisfação:</label>
+    <input type="range" min="0" max="10">
+
+    <!-- Input oculto -->
+    <!-- Muito usado para enviar dados internos -->
+    <input type="hidden" name="idUsuario" value="12345">
+
+    <!-- Botões -->
+    <br><br>
+    <button type="submit">Enviar</button>
+    <button type="reset">Limpar</button>
+
+</form>
+
+</body>
+</html>
