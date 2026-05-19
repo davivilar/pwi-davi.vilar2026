@@ -27,8 +27,8 @@ HTML
 
 CSS
 	Seletores
-	Cascata e herança; 
-	Variáveis (custom properties); 
+	Cascata e herança
+	Variáveis (custom properties)
 	Media Queries
 	
 
